@@ -30,7 +30,7 @@
  * 
  * @author Nicolas Merinian
  * @date 17/12/2015
- * @version 1.61
+ * @version 1.63
  * @param {string} imageUrl 
  * @returns
  */
@@ -123,7 +123,7 @@ Loader.prototype._getImageSize = function() {
 		
 		// If there is no error
 		if (this.complete) {
-			
+			console.log("complete");
 			// Update the the size stored in the Loader instance
 			self.imageWidth = this.width;
 			self.imageHeight = this.height;
@@ -285,26 +285,36 @@ Loader.prototype._move = function () {
  * @returns {Loader}
  */
 Loader.prototype.show = function (delay) {
-	if (!delay || delay < 0 || isNaN(Number(delay))) {
-		delay = 400;
+	if (typeof delay == "undefined") {
+		this.$element.show();
 	}
-	this.$element.show(delay);
+	else {debugger;
+		if (!(!isNaN(Number(delay)) && delay >= 0)) {
+			delay = 400;
+		}
+		this.$element.show(delay);
+	}
 	this.visible = true;
 	return this;
 };
 
 /**
  * Hide the loader.
- * When a delay is provided, hide() becomes an animation method (like fadeOut).
+ * When a delay is provided, hide() becomes an animation method (like fadeIn).
  * 
  * @param {int} delay 
  * @returns {Loader}
  */
 Loader.prototype.hide = function (delay) {
-	if (!delay || delay < 0 || isNaN(Number(delay))) {
-		delay = 400;
+	if (typeof delay == "undefined") {
+		this.$element.hide();
 	}
-	this.$element.hide(delay);
+	else {
+		if (!(!isNaN(Number(delay)) && delay >= 0)) {
+			delay = 400;
+		}
+		this.$element.hide(delay);
+	}
 	this.visible = false;
 	return this;
 };
