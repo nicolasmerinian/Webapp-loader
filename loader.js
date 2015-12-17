@@ -30,7 +30,7 @@
  * 
  * @author Nicolas Merinian
  * @date 17/12/2015
- * @version 1.6
+ * @version 1.61
  * @param {string} imageUrl 
  * @returns
  */
