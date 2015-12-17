@@ -279,6 +279,7 @@ Loader.prototype._move = function () {
 
 /**
  * Show the loader.
+ * When a delay is provided, show() becomes an animation method (like fadeIn).
  * 
  * @param {int} delay 
  * @returns {Loader}
@@ -294,6 +295,7 @@ Loader.prototype.show = function (delay) {
 
 /**
  * Hide the loader.
+ * When a delay is provided, hide() becomes an animation method (like fadeOut).
  * 
  * @param {int} delay 
  * @returns {Loader}
@@ -333,7 +335,6 @@ Loader.prototype.showFor = function (delay) {
  * Show the loader in delay ms.
  * 
  * @param {int} delay 
- * @deprecated use { show(delay) } instead.  
  * @returns {Loader}
  */
 Loader.prototype.showIn = function (delay) {
@@ -353,7 +354,6 @@ Loader.prototype.showIn = function (delay) {
  * Hide the loader for delay ms.
  * 
  * @param {int} delay 
- * @deprecated use { hide(delay) } instead.  
  * @returns {Loader}
  */
 Loader.prototype.hideIn = function (delay) {
